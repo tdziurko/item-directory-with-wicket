@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd"
+>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title><wicket:message key="applicationName"/></title>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+
+<div class="header-wrapper">
+	<div class="header pagewidth">
+		<!-- TITLE -->
+		<h1><a href="#" wicket:id="headerHomePageLink"><wicket:message key="applicationName"/></a></h1>
+		<h2><a href="#" wicket:id="headerHomePageLink2"><wicket:message key="applicationHeader"/></a></h2>
+		<!-- END TITLE -->
+	</div>
+</div>
+
+<div class="nav-wrapper-outside">
+	<div class="nav-wrapper pagewidth">
+		<div class="nav">
+			<ul>
+				<!-- MENU -->
+				<li><a href="" wicket:id="homePageLink"><wicket:message key="homePage"/></a></li>
+				<li><a href="" wicket:id="locationsPageLink"><wicket:message key="itemLocationsPage"/></a></li>
+                <li><a href="#"><wicket:message key="aboutPage"/></a></li>
+                <li style="float: right; padding-top: 20px; padding-right: 20px;">
+                    <span wicket:id="languagePanel"/>
+                </li>
+                <!-- END MENU -->
+            </ul>
+
+		</div>
+	</div>
+</div>
+<div class="pagewidth">
+	<div class="page-wrap">
+		<div class="content">
+			<!-- CONTENT -->
+		
+			<div wicket:id="feedbackPanel"></div>
+			
+			<wicket:child/>
+			
+			<!-- END CONTENT -->
+			
+		</div>
+		
+		<div class="sidebar">	
+			<div wicket:id="sidebarPanel"></div>
+		</div>
+	
+		<div class="clear"></div>		
+	</div>
+	<div class="footer-wrapper-outside">
+		<div class="footer-wrapper">
+			<div class="footer">
+				<p><a href="http://validator.w3.org/check/referer" title="valid XHTML">XHTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer" title="valid CSS">CSS</a> | &copy; TomaszDziurko.pl | Design: <a href="http://www.spyka.net">Spyka Webmaster</a> | <a href="http://www.justfreetemplates.com">Free Web Templates</a> | <wicket:message key="flagIconsBy"/> <a href="http://www.icondrawer.com/">www.IconDrawer.com</a></p>
+			</div>	
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+</head>
+<body>
+	<wicket:extend>
+		<h3><wicket:message key="locations"/></h3>
+		<br/>
+		<wicket:enclosure child="locations">
+			<table>
+				<tr><th>ID</th><th><wicket:message key="name"/></th><th><wicket:message key="actions"/></th></tr>
+				<span wicket:id="locations">
+					<tr>
+						<td><span wicket:id="id"></span></td>
+						<td><span wicket:id="name"></span></td>
+						<td align="center"><a href wicket:id="editLocationLink"><wicket:message key="edit"/></a>&nbsp;<a href wicket:id="removeLocationLink"><wicket:message key="remove"/></a></td>
+					</tr>
+				</span>
+			</table>
+		</wicket:enclosure>
+		
+		<div wicket:id="noLocationsLabel"></div>
+		<div style="float: right;">
+			<a href="#" wicket:id="addLocationPageLink"><wicket:message key="addNewLocationLink"/></a>
+		</div>
+	</wicket:extend>
+</body>
+</html>

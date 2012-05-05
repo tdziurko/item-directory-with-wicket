@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+	<wicket:head>
+		<title>Item Directory v0.1</title>
+    </wicket:head>
+</head>
+<body>
+	<wicket:extend>
+		<h3>
+            <wicket:message key="addLocation"/>
+		</h3>
+		
+		<br/>
+		
+			<form action="" wicket:id="addLocationForm">
+				<label for="name" wicket:id="nameLabel">Location name X</label> <input type="text" id="name" wicket:id="name"/>
+				
+				<br/>
+				<input type="submit" wicket:message="value:save" class="formbutton" name="save" wicket:id="submitButton"/>
+			</form>
+		
+	</wicket:extend>
+</body>
+</html>
