@@ -1,3 +1,4 @@
+use item_directory;
 
 create table locations (
 	id bigint(20) not null auto_increment,

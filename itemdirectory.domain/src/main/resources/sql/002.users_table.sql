@@ -1,3 +1,4 @@
+use item_directory;
 
 
 create table users (
