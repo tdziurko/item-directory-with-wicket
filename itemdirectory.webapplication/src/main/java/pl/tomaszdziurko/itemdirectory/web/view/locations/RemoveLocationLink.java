@@ -6,7 +6,6 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import pl.tomaszdziurko.itemdirectory.domain.entities.items.Location;
 import pl.tomaszdziurko.itemdirectory.service.items.LocationService;
-import sun.jdbc.odbc.ee.ObjectPool;
 
 public class RemoveLocationLink extends Link<Void> {
 	
