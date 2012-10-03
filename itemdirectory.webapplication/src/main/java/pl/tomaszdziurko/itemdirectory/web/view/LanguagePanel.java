@@ -4,7 +4,7 @@ package pl.tomaszdziurko.itemdirectory.web.view;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.panel.Panel;
-import org.apache.wicket.protocol.http.WebResponse;
+import org.apache.wicket.request.http.WebResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pl.tomaszdziurko.itemdirectory.web.Application;

@@ -1,12 +1,13 @@
 package pl.tomaszdziurko.itemdirectory.web;
 
 import org.apache.wicket.Page;
-import org.apache.wicket.Request;
-import org.apache.wicket.Response;
+import org.apache.wicket.RuntimeConfigurationType;
 import org.apache.wicket.Session;
 import org.apache.wicket.protocol.http.WebApplication;
-import org.apache.wicket.protocol.http.WebRequest;
-import org.apache.wicket.protocol.http.WebResponse;
+import org.apache.wicket.request.Request;
+import org.apache.wicket.request.Response;
+import org.apache.wicket.request.http.WebRequest;
+import org.apache.wicket.request.http.WebResponse;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -15,6 +16,7 @@ import pl.tomaszdziurko.itemdirectory.web.view.HomePage;
 import pl.tomaszdziurko.itemdirectory.web.view.locations.LocationsPage;
 
 import javax.servlet.http.Cookie;
+import java.util.List;
 import java.util.Locale;
 
 @Component(value = "wicketApplication")
@@ -30,7 +32,8 @@ public class Application extends WebApplication {
     @Override
     protected void init() {
         super.init();
-        addComponentInstantiationListener(new SpringComponentInjector(this, applicationContext, true));
+
+        getComponentInstantiationListeners().add(new SpringComponentInjector(this, applicationContext, true));
 
         getMarkupSettings().setDefaultMarkupEncoding(DEFAULT_ENCODING);
         getRequestCycleSettings().setResponseRequestEncoding(DEFAULT_ENCODING);
@@ -38,7 +41,7 @@ public class Application extends WebApplication {
         mountBookmarkablePages();
         mountErrorLandingPages();
 
-        if (getConfigurationType().equals(WebApplication.DEPLOYMENT)) {
+        if (getConfigurationType().equals(RuntimeConfigurationType.DEPLOYMENT)) {
             getMarkupSettings().setStripWicketTags(true);
             getMarkupSettings().setStripComments(true);
             getMarkupSettings().setCompressWhitespace(true);
@@ -47,7 +50,7 @@ public class Application extends WebApplication {
     }
 
     private void mountBookmarkablePages() {
-        mountBookmarkablePage("locations", LocationsPage.class);
+        mountPage("locations", LocationsPage.class);
     }
 
     private void mountErrorLandingPages() {
@@ -55,8 +58,8 @@ public class Application extends WebApplication {
     }
 
     @Override
-    public String getConfigurationType() {
-        return WebApplication.DEVELOPMENT;
+    public RuntimeConfigurationType getConfigurationType() {
+        return RuntimeConfigurationType.DEVELOPMENT;
     }
 
     @Override
@@ -79,9 +82,9 @@ public class Application extends WebApplication {
 
     private Session trySetLanguageFromCookie(Session session, Request request, Response response) {
 
-        Cookie[] cookies = ((WebRequest) request).getCookies();
+        List<Cookie> cookies = ((WebRequest) request).getCookies();
 
-        if (cookies == null || cookies.length == 0) {
+        if (cookies == null || cookies.isEmpty()) {
             return session;
         }
 

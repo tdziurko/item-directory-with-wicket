@@ -1,11 +1,9 @@
 package pl.tomaszdziurko.itemdirectory.web;
 
-import org.apache.wicket.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
-
-import org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator;
+import org.apache.wicket.request.mapper.parameter.PageParameters;
 import pl.tomaszdziurko.itemdirectory.web.view.LanguagePanel;
 import pl.tomaszdziurko.itemdirectory.web.view.RightSidebarPanel;
 import pl.tomaszdziurko.itemdirectory.web.view.locations.LocationsPage;

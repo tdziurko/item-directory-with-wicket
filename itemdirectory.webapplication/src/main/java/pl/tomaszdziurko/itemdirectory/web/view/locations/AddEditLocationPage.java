@@ -4,12 +4,11 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.RequiredTextField;
-import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.StringResourceModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
-import org.apache.wicket.validation.validator.StringValidator.LengthBetweenValidator;
+import org.apache.wicket.validation.validator.StringValidator;
 
 import pl.tomaszdziurko.itemdirectory.domain.dao.items.LocationDao;
 import pl.tomaszdziurko.itemdirectory.domain.entities.items.Location;
@@ -42,7 +41,7 @@ public class AddEditLocationPage extends BasePage {
 	private void initGui() {
 
 		Form<Location> addLocationForm = new Form<Location>("addLocationForm",
-				new CompoundPropertyModel<Location>(getDefaultModel()));
+				new CompoundPropertyModel<Location>((Model<Location>)getDefaultModel()));
 		add(addLocationForm);
 		
 		Label nameLabel = new Label("nameLabel", new StringResourceModel("locationName", this, null));
@@ -73,7 +72,7 @@ public class AddEditLocationPage extends BasePage {
 	private RequiredTextField<String> createLabelFieldWithValidation() {
 		RequiredTextField<String> nameField = new RequiredTextField<String>("name");
 		nameField.setLabel(new StringResourceModel("locationName", this, null));
-		nameField.add(LengthBetweenValidator.lengthBetween(MIN_LOCATION_NAME_LENGTH, MAX_LOCATION_NAME_LENGTH));
+		nameField.add(StringValidator.lengthBetween(MIN_LOCATION_NAME_LENGTH, MAX_LOCATION_NAME_LENGTH));
 		
 		nameField.add(createUniqueLocationNameValidator());
 		
